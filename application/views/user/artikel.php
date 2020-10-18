@@ -17,28 +17,32 @@
 	                </div>
 	            </div>
             	<div class="row">
+
+            		<?php foreach ($artikel as $a) { ?>
+
                 	<div class="col-xl-4 col-md-4">
                     	<div class="single_latest_blog">
                         	<div class="thumb">
-                            	<img width="362" height="250" src="<?php echo base_url('asset/user/img/default.jpg') ?>" alt="">
+                            	<img width="362" height="250" src="<?= base_url('upload/artikel/' . $a["gambar"]) ?>" alt="">
                         	</div>
                         	<div class="content_blog">
                             	<div class="date">
-                                	<p>12 Jun, 2019</p>
+                                	<p><?= $a["tanggal"] ?></p>
                             	</div>
                             	<div class="blog_meta">
-                            	    <h3><a href="#">----- Judul Artikel -----</a></h3>
+                            	    <h3><a href="#"><?= $a["judul"]; ?></a></h3>
+                            	    <br><br>
                             	</div>
-                            	<p class="blog_text">
-                            	    isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel isi artikel 
-                            	</p>
                         	</div>
                     	</div>
                 	</div>
-	                <div class="col-xl-4 col-md-4">
+
+                	<?php } ?>
+
+	                <!-- <div class="col-xl-4 col-md-4">
 	                    <div class="single_latest_blog">
 	                        <div class="thumb">
-	                            <img width="362" height="250" src="<?php echo base_url('asset/user/img/default.jpg') ?>" alt="">
+	                            <img width="362" height="250" src="<?php //echo base_url('asset/user/img/default.jpg') ?>" alt="">
 	                        </div>
 	                        <div class="content_blog">
 	                            <div class="date">
@@ -56,7 +60,7 @@
 	                <div class="col-xl-4 col-md-4">
 	                    <div class="single_latest_blog">
 	                        <div class="thumb">
-	                            <img width="362" height="250" src="<?php echo base_url('asset/user/img/default.jpg') ?>" alt="">
+	                            <img width="362" height="250" src="<?php //echo base_url('asset/user/img/default.jpg') ?>" alt="">
 	                        </div>
 	                        <div class="content_blog">
 	                            <div class="date">
@@ -70,7 +74,7 @@
 	                            </p>
 	                        </div>
 	                    </div>
-	                </div>
+	                </div> -->
 	            </div>
             </div>
         </div>

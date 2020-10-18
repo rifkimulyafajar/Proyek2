@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('user_model');
+		$this->load->library('form_validation');
+	}
+
 	public function index()
 	{
 		$data['title'] = "Home";
@@ -17,10 +24,10 @@ class User extends CI_Controller {
 	{
 		# code...
 		$data['title'] = "Berita";
-		
+		$data['berita'] = $this->user_model->getAllBerita();
 
 		$this->load->view('user/header', $data);
-		$this->load->view('user/berita');
+		$this->load->view('user/berita', $data);
 		$this->load->view('user/footer');
 	}
 
@@ -28,10 +35,10 @@ class User extends CI_Controller {
 	{
 		# code...
 		$data['title'] = "Artikel";
-		
+		$data['artikel'] = $this->user_model->getAllArtikel();
 
 		$this->load->view('user/header', $data);
-		$this->load->view('user/artikel');
+		$this->load->view('user/artikel', $data);
 		$this->load->view('user/footer');
 	}
 
@@ -65,6 +72,17 @@ class User extends CI_Controller {
 
 		$this->load->view('user/header', $data);
 		$this->load->view('user/diskusi');
+		$this->load->view('user/footer');
+	}
+
+	public function detail_diskusi()
+	{
+		# code...
+		$data['title'] = "Detail Diskusi";
+
+
+		$this->load->view('user/header', $data);
+		$this->load->view('user/detail_diskusi');
 		$this->load->view('user/footer');
 	}
 }

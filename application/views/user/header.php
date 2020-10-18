@@ -68,7 +68,7 @@
                         <div class="col-xl-2 col-lg-3 d-none d-lg-block">
                             <div class="log_chat_area d-flex align-items-center">
                                 <div class="live_chat_btn">
-                                    <a class="boxed_btn_orange" href="#">
+                                    <a class="boxed_btn_orange" href="<?php echo base_url('login'); ?>">
                                         <i class="flaticon-user"></i>
                                         <span>Log In</span>
                                     </a>
