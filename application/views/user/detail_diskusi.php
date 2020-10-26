@@ -6,13 +6,12 @@
 	        <div class="container">
 	        	<div class="card">
 				  <div class="card-header">
-				    <h4>Topik 3</h4>
+				    <h4>Topik <?= $topik['id_topik'] ?></h4>
 				  </div>
 				  <div class="card-body">
-				  	<p><b>2020-10-20 08:32:09</b></p>
-				    <h3 class="card-title">Nama Pengirim</h3>
-				    <p class="card-text">Isi Pembahasan Isi Pembahasan Isi Pembahasan Isi Pembahasan Isi Pembahasan Isi Pembahasan</p>
-				    <p class="text-right">Tanggapan (23)</p>
+				  	<p><b><?= $topik['tanggal'] ?></b></p>
+				    <h4 class="card-text">Topik : <?= $topik['topik'] ?></h4>
+				    <p class="text-right">Tanggapan (<?= $diskusi ?>)</p>
 				  </div>
 				</div>
 				<br><br>
@@ -58,16 +57,6 @@
 				  	<p>tanggapan tanggapan tanggapan tanggapan tanggapan tanggapan tanggapan tanggapan</p>
 				  </div>
 				</div>
-				<br>
 				
-				<div class="card">
-				  <div class="card-header">
-				    <h4>Nama penanggap</h4>
-				  </div>
-				  <div class="card-body">
-				  	<p><b>2020-10-21 12:12:12</b></p>
-				  	<p>tanggapan tanggapan tanggapan tanggapan tanggapan tanggapan tanggapan tanggapan</p>
-				  </div>
-				</div>
 	        </div>
 	    </div>

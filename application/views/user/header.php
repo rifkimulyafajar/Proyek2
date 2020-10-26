@@ -65,6 +65,9 @@
                                 </nav>
                             </div>
                         </div>
+
+                    <?php  if (!isset($_SESSION['user'])) : ?>
+
                         <div class="col-xl-2 col-lg-3 d-none d-lg-block">
                             <div class="log_chat_area d-flex align-items-center">
                                 <div class="live_chat_btn">
@@ -75,6 +78,24 @@
                                 </div>
                             </div>
                         </div>
+
+                    <?php endif;
+
+                    if (isset($_SESSION['user'])) : ?>
+
+                        <div class="col-xl-2 col-lg-3 d-none d-lg-block">
+                            <div class="log_chat_area d-flex align-items-center">
+                                <div class="live_chat_btn">
+                                    <a class="boxed_btn_orange" href="<?php echo base_url('user/logout'); ?>">
+                                        <i class="flaticon-user"></i>
+                                        <span>Log Out</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>    
+
+                    <?php endif ?>
+
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
                         </div>

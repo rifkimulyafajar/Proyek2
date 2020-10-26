@@ -29,15 +29,15 @@
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single_courses">
                                     <div class="thumb">
-                                        <a href="#">
+                                        <a href="<?= base_url()?>user/detail_berita/<?= $b['id_berita']; ?>">
                                             <img width="362" height="250" src="<?= base_url('upload/berita/' . $b["foto"]) ?>" alt="">
                                         </a>
                                     </div>
                                     <div class="courses_info">
-                                        <h3><a href="#"><?= $b["judul"]; ?></a></h3>
+                                        <h3><a href="<?= base_url()?>user/detail_berita/<?= $b['id_berita']; ?>"><?= $b["judul"]; ?></a></h3>
                                         <div class="star_prise d-flex justify-content-between">
                                             <div class="star">
-                                                <span><?= $b["tanggal"]; ?></span>
+                                                <span><?= $b["Tanggal"]; ?></span>
                                             </div>
                                         </div>
                                     </div>

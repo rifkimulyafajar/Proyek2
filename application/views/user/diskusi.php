@@ -19,60 +19,82 @@
 	                </div>
 	            </div>
 
+	            <div class="col-lg-12">
+
+	            	<?php if (validation_errors()) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo validation_errors(); ?>
+                            </div>
+                        <?php endif; ?>
+
+	            	<?php  if (!isset($_SESSION['user'])) : ?>
+	            	
+	            	<form class="form-contact contact_form" action="<?= base_url('login') ?>" method="post" novalidate="novalidate">
+	            	
+	            	<?php endif;
+
+	            	if (isset($_SESSION['user'])) : ?>
+
+	            	<form class="form-contact contact_form" action="<?= base_url('user/tambah_topik') ?>" method="post" novalidate="novalidate">
+
+	            	<?php endif; ?>
+
+	            		<div class="row">
+	            			<div class="col-12">
+	                            <div class="form-group">
+	                                <input class="form-control" name="topik" id="topik" type="text" placeholder="Topik Permasalahan">
+	                            </div>
+	                        </div>
+	                        <div class="col-12">
+	                            <div class="form-group">
+	                                <input class="form-control" name="tanggal" id="tanggal" type="hidden" placeholder="Tanggal" value="<?php echo date('Y-m-d') ?>">
+	                            </div>
+	                        </div>
+	            		</div>
+			            <div class="row">
+			            	<div class="col-sm">
+			            	</div>
+				           	<div class="col-sm">
+				           	</div>
+				           	<div class="col-sm">
+				           	</div>
+				           	<div class="col-sm">
+					           	<button type="submit" name="submit" class="btn btn-outline-success btn-lg btn-block">Tambah Topik Diskusi</button> <br><br>
+					        </div>
+					    </div>
+	            	</form>
+	            </div>
+
 	            <table class="table table-borderless">
 				  <thead>
 				    <tr class="table-primary">
 				      <th scope="col" class="text-center">No.</th>
 				      <th scope="col" class="text-center">Topik</th>
-				      <th scope="col">Nama Pengirim</th>
-				      <th scope="col" class="text-center">Tanggal/Waktu</th>
+				      <th scope="col" class="text-center">Tanggal</th>
 				      <th scope="col" class="text-center">Tanggapan</th>
 				      <th scope="col"></th>
 				    </tr>
 				  </thead>
 				  <tbody>
+
+				  <?php
+					$no=1;
+				  	foreach ($topik as $tp) {
+			  	  ?>
+
 				    <tr>
-				      <th scope="row" class="text-center">1</th>
-				      <td>Topik 1 Topik 1 Topik 1 Topik 1 Topik 1 Topik 1</td>
-				      <td>Udin Gambut</td>
-				      <td class="text-center">2020-08-23 20:18:34</td>
-				      <td class="text-center">2</td>
-				      <td class="text-center"><a href="<?php echo base_url('user/detail_diskusi') ?>" type="button" class="btn btn-outline-primary btn-sm">Detail</button></td>
+				      <th scope="row" class="text-center"><?= $no++ ?></th>
+				      <td><?= $tp["topik"]; ?></td>
+				      <td class="text-center"><?= $tp["tanggal"]; ?></td>
+				      <td class="text-center"><?= $diskusi ?></td>
+				      <td class="text-center"><a href="<?= base_url(); ?>user/detail_diskusi/<?= $tp['id_topik']; ?>" type="button" class="btn btn-outline-primary btn-sm">Detail</button></td>
 				    </tr>
-				    <tr>
-				      <th scope="row" class="text-center">2</th>
-				      <td>Topik 2 Topik 2 Topik 2 Topik 2 Topik 2 Topik 2 Topik 2 Topik 2</td>
-				      <td>Gebi Gemessh</td>
-				      <td class="text-center">2020-08-09 09:24:23</td>
-				      <td class="text-center">87</td>
-				      <td class="text-center"><a href="<?php echo base_url('user/detail_diskusi') ?>" type="button" class="btn btn-outline-primary btn-sm">Detail</button></td>
-				    </tr>
-				    <tr>
-				    	<th scope="row" class="text-center">3</th>
-				    	<td>Topik 3 Topik 3</td>
-				    	<td>Sulastri</td>
-				    	<td class="text-center">2020-09-12 15:53:11</td>
-				    	<td class="text-center">34</td>
-				    	<td class="text-center"><a href="<?php echo base_url('user/detail_diskusi') ?>" type="button" class="btn btn-outline-primary btn-sm">Detail</button></td>
-				    </tr>
-				    <tr>
-				      <th scope="row" class="text-center">2</th>
-				      <td>Topik 2 Topik 2 Topik 2 Topik 2 Topik 2 Topik 2 Topik 2 Topik 2</td>
-				      <td>Gebi Gemessh</td>
-				      <td class="text-center">2020-08-09 09:24:23</td>
-				      <td class="text-center">87</td>
-				      <td class="text-center"><a href="<?php echo base_url('user/detail_diskusi') ?>" type="button" class="btn btn-outline-primary btn-sm">Detail</button></td>
-				    </tr>
-				    <tr>
-				      <th scope="row" class="text-center">1</th>
-				      <td>Topik 1 Topik 1 Topik 1 Topik 1 Topik 1 Topik 1</td>
-				      <td>Udin Gambut</td>
-				      <td class="text-center">2020-08-23 20:18:34</td>
-				      <td class="text-center">2</td>
-				      <td class="text-center"><a href="<?php echo base_url('user/detail_diskusi') ?>" type="button" class="btn btn-outline-primary btn-sm">Detail</button></td>
-				    </tr>
+
+				  <?php
+				  }
+				  ?>
+
 				  </tbody>
 				</table>
-
 	        </div>
 	    </div>

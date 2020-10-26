@@ -23,14 +23,16 @@
                 	<div class="col-xl-4 col-md-4">
                     	<div class="single_latest_blog">
                         	<div class="thumb">
-                            	<img width="362" height="250" src="<?= base_url('upload/artikel/' . $a["gambar"]) ?>" alt="">
+                        		<a href="<?= base_url() ?>user/detail_artikel/<?= $a['id_artikel']; ?>">
+                        			<img href="" width="362" height="250" src="<?= base_url('upload/artikel/' . $a["gambar"]) ?>" alt="">
+                        		</a>
                         	</div>
                         	<div class="content_blog">
                             	<div class="date">
-                                	<p><?= $a["tanggal"] ?></p>
+                                	<p><?= $a["Tanggal"] ?></p>
                             	</div>
                             	<div class="blog_meta">
-                            	    <h3><a href="#"><?= $a["judul"]; ?></a></h3>
+                            	    <h3><a href="<?= base_url() ?>user/detail_artikel/<?= $a['id_artikel']; ?>"><?= $a["judul"]; ?></a></h3>
                             	    <br><br>
                             	</div>
                         	</div>

@@ -21,7 +21,7 @@
                   <h2 class="contact-title">Data</h2>
                 </div>
                 <div class="col-lg-12">
-					<form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+					<form class="form-contact contact_form" action="#" method="post" id="contactForm" novalidate="novalidate">
 	                	<div class="row">
 	                        <div class="col-sm-12">
 	                           	<div class="form-group">
