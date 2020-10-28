@@ -9,6 +9,7 @@
 		         <div class="col-lg-10 posts-list">
 		            <div class="single-post">
 		               <h1><?= $berita['judul']; ?></h1>
+		               <br>
 		               <div class="feature-img">
 		                  <img class="img-fluid" src="<?= base_url('upload/berita/' . $berita['foto']) ?>" alt="">
 		               </div>
@@ -20,6 +21,8 @@
 		                  <h5 class="text-justify">
 		                     <?= $berita['konten']; ?>
 		                  </h5>
+		                  <br>
+	                      <h5 class="text-right">Sumber : <a href="<?= $berita['sumber']; ?>"> <?= $berita['sumber']; ?> </a></h5>
 		               </div>
 		            </div>
 		         </div>

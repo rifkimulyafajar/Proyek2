@@ -24,13 +24,17 @@
                                 <input type="text" class="form-control" id="judul" name="judul">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                <!-- <label for="tanggal">Tanggal</label> -->
+                                <input type="hidden" class="form-control" id="Tanggal" name="Tanggal" value="<?php echo date("Y-m-d") ?>">
                             </div>
                             <div class="form-group">
                                 <label for="gambar">Gambar</label>
                                 <input type="file" class="form-control" id="gambar" name="gambar">
                                 <p>Format .jpg, .png Max Size : 500KB</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="sumber">Sumber</label>
+                                <input type="text" class="form-control" id="sumber" name="sumber">
                             </div>
                             <div class="form-group">
                                 <label for="konten">Konten</label>
