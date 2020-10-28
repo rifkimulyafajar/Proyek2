@@ -87,7 +87,7 @@
                             <div class="log_chat_area d-flex align-items-center">
                                 <div class="live_chat_btn">
                                     <a class="boxed_btn_orange" href="<?php echo base_url('user/logout'); ?>">
-                                        <i class="flaticon-user"></i>
+                                        <i class="fa fa-sign-out"></i>
                                         <span>Log Out</span>
                                     </a>
                                 </div>

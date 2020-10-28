@@ -59,7 +59,7 @@
 				           	<div class="col-sm">
 				           	</div>
 				           	<div class="col-sm">
-					           	<button type="submit" name="submit" class="btn btn-outline-success btn-lg btn-block">Tambah Topik Diskusi</button> <br><br>
+					           	<button type="submit" name="submit" class="btn btn-outline-success btn-lg btn-block"><i class="fa fa-plus-square"></i> &nbsp;Tambah Topik Diskusi</button> <br><br>
 					        </div>
 					    </div>
 	            	</form>
