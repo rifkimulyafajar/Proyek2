@@ -6,7 +6,7 @@
 	        <div class="container">
 	        	<div class="card">
 				  <div class="card-header">
-				    <h4>Topik <?= $topik['id_topik'] ?></h4>
+				    <h4>Topik dari <?= $topik['nama'] ?></h4>
 				  </div>
 				  <div class="card-body">
 				  	<p><b><?= $topik['tanggal'] ?></b></p>

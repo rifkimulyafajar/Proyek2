@@ -69,8 +69,9 @@ class admin_model extends CI_Model
         $this->id_artikel = uniqid();
         $data = [
             "judul" => $this->input->post('judul', true),
+            "Tanggal" => $this->input->post('Tanggal', true),
             "gambar" => $this->uploadImage(),
-            "tanggal" => $this->input->post('tanggal', true),
+            "sumber" => $this->input->post('sumber', true),
             "konten" => $this->input->post('konten', true),
         ];
         $this->db->insert('artikel', $data);
@@ -96,8 +97,8 @@ class admin_model extends CI_Model
         $post = $this->input->post();
         $this->id_artikel = $post["id_artikel"];
         $this->judul = $post["judul"];
-        $this->tanggal = $post["tanggal"];
         $this->gambar = $this->uploadimage();
+        $this->sumber = $post["sumber"];
         $this->konten = $post["konten"];
 
         $this->db->update('artikel', $this, array('id_artikel' => $post['id_artikel']));
@@ -126,8 +127,9 @@ class admin_model extends CI_Model
         $this->id_berita = uniqid();
         $data = [
             "judul" => $this->input->post('judul', true),
+            "Tanggal" => $this->input->post('Tanggal', true),
             "foto" => $this->uploadImage1(),
-            "tanggal" => $this->input->post('tanggal', true),
+            "sumber" => $this->input->post('sumber', true),
             "konten" => $this->input->post('konten', true),
         ];
         $this->db->insert('berita', $data);
@@ -153,8 +155,8 @@ class admin_model extends CI_Model
         $post = $this->input->post();
         $this->id_berita = $post["id_berita"];
         $this->judul = $post["judul"];
-        $this->tanggal = $post["tanggal"];
         $this->foto = $this->uploadimage1();
+        $this->sumber = $post["sumber"];
         $this->konten = $post["konten"];
 
         $this->db->update('berita', $this, array('id_berita' => $post['id_berita']));
@@ -183,6 +185,7 @@ class admin_model extends CI_Model
         $this->id_topik = uniqid();
         $data = [
             "topik" => $this->input->post('topik', true),
+            "nama" => $this->input->post('nama', true),
             "tanggal" => $this->input->post('tanggal', true),
         ];
         $this->db->insert('topik', $data);

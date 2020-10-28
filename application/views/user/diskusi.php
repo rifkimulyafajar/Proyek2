@@ -42,12 +42,17 @@
 	            		<div class="row">
 	            			<div class="col-12">
 	                            <div class="form-group">
-	                                <input class="form-control" name="topik" id="topik" type="text" placeholder="Topik Permasalahan">
+	                                <input class="form-control" name="tanggal" id="tanggal" type="hidden" placeholder="Tanggal" value="<?php echo date('Y-m-d') ?>">
 	                            </div>
 	                        </div>
 	                        <div class="col-12">
 	                            <div class="form-group">
-	                                <input class="form-control" name="tanggal" id="tanggal" type="hidden" placeholder="Tanggal" value="<?php echo date('Y-m-d') ?>">
+	                                <input class="form-control" name="nama" id="nama" type="hidden" placeholder="Pengirim" value="<?php echo $_SESSION['user']; ?>">
+	                            </div>
+	                        </div>
+	            			<div class="col-12">
+	                            <div class="form-group">
+	                                <input class="form-control" name="topik" id="topik" type="text" placeholder="Topik Permasalahan">
 	                            </div>
 	                        </div>
 	            		</div>
@@ -69,7 +74,8 @@
 				  <thead>
 				    <tr class="table-primary">
 				      <th scope="col" class="text-center">No.</th>
-				      <th scope="col" class="text-center">Topik</th>
+				      <th scope="col">Pengirim</th>
+				      <th scope="col">Topik</th>
 				      <th scope="col" class="text-center">Tanggal</th>
 				      <th scope="col" class="text-center">Tanggapan</th>
 				      <th scope="col"></th>
@@ -84,6 +90,7 @@
 
 				    <tr>
 				      <th scope="row" class="text-center"><?= $no++ ?></th>
+				      <td><?= $tp["nama"]; ?></td>
 				      <td><?= $tp["topik"]; ?></td>
 				      <td class="text-center"><?= $tp["tanggal"]; ?></td>
 				      <td class="text-center"><?= $diskusi ?></td>
