@@ -25,19 +25,19 @@
                             <div class="alert alert-danger" role="alert">
                                 <?php echo validation_errors(); ?>
                             </div>
-                        <?php endif; ?>
+                    <?php endif; ?>
 
-	            	<?php  if (!isset($_SESSION['user'])) : ?>
+	        <?php  if (!isset($_SESSION['user'])) : ?>
 	            	
-	            	<form class="form-contact contact_form" action="<?= base_url('login') ?>" method="post" novalidate="novalidate">
+	            <form class="form-contact contact_form" action="<?= base_url('login') ?>" method="post" novalidate="novalidate">
 	            	
-	            	<?php endif;
+	        <?php endif;
 
-	            	if (isset($_SESSION['user'])) : ?>
+	           	if (isset($_SESSION['user'])) : ?>
 
 	            	<form class="form-contact contact_form" action="<?= base_url('user/tambah_topik') ?>" method="post" novalidate="novalidate">
 
-	            	<?php endif; ?>
+	            <?php endif; ?>
 
 	            		<div class="row">
 	            			<div class="col-12">
@@ -45,11 +45,17 @@
 	                                <input class="form-control" name="tanggal" id="tanggal" type="hidden" placeholder="Tanggal" value="<?php echo date('Y-m-d') ?>">
 	                            </div>
 	                        </div>
+
+	                    <?php  if (isset($_SESSION['user'])) : ?>
+
 	                        <div class="col-12">
 	                            <div class="form-group">
 	                                <input class="form-control" name="nama" id="nama" type="hidden" placeholder="Pengirim" value="<?php echo $_SESSION['user']; ?>">
 	                            </div>
 	                        </div>
+
+	                    <?php endif; ?>
+	            			
 	            			<div class="col-12">
 	                            <div class="form-group">
 	                                <input class="form-control" name="topik" id="topik" type="text" placeholder="Topik Permasalahan">
@@ -98,7 +104,7 @@
 				    </tr>
 
 				  <?php
-				  }
+				  	}
 				  ?>
 
 				  </tbody>

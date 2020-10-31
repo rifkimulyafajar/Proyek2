@@ -113,6 +113,7 @@ class User extends CI_Controller {
 		$data['title'] = "Detail Diskusi";
 		$data['diskusi'] = $this->admin_model->hitung_diskusi();
 		$data['topik'] = $this->admin_model->getTopikById($id);
+		$data['komentar'] = $this->user_model->getAllTanggapan($id);
 
 		$this->load->view('user/header', $data);
 		$this->load->view('user/detail_diskusi', $data);
@@ -136,6 +137,28 @@ class User extends CI_Controller {
 			$this->admin_model->tambah_topik();
 			echo "<script>alert('Success');</script>";
 			redirect('user/diskusi', 'refresh');
+		}
+	}
+
+	public function tambah_diskusi($id)
+	{
+		# code...
+		$data['title'] = "Detail Diskusi";
+		$data['diskusi'] = $this->admin_model->hitung_diskusi();
+		$data['topik'] = $this->admin_model->getTopikById($id);
+		$data['komentar'] = $this->user_model->getAllTanggapan();
+
+		$this->form_validation->set_rules('pembahasan', 'Tanggapan', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			# code...
+			$this->load->view('user/header', $data);
+			$this->load->view('user/detail_diskusi', $data);
+			$this->load->view('user/footer');
+		}
+		else {
+			$this->user_model->tambah_tanggapan($id);
+			redirect('user/detail_diskusi/'.$id , 'refresh');
 		}
 	}
 

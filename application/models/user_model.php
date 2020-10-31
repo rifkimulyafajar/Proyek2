@@ -31,4 +31,26 @@ class user_model extends CI_Model
     }
 
     // ====================== ARTIKEL ==================================================
+
+    public function getAllTanggapan($id)
+    {
+        # code...
+       $query = $this->db->get_where('diskusi', array('id_topik' => $id));
+       return $query->result_array();
+    }
+
+    public function tambah_tanggapan($id)
+    {
+        # code...
+        $this->id_diskusi = uniqid();
+
+        $data = [
+            "id_topik" => $this->input->post('id_topik', true),
+            "nama" => $this->input->post('nama', true),
+            "pembahasan" => $this->input->post('pembahasan', true),
+            "tanggal" => $this->input->post('tanggal', true)
+        ];
+
+        $this->db->insert('diskusi', $data);
+    }
 }
