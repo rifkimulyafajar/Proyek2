@@ -8,11 +8,11 @@
          <div class="row">
             <div class="col-lg-10 posts-list">
                <div class="single-post">
+                <h1><?= $artikel['judul']; ?></h1> <br>
                      <div class="feature-img">
                         <img class="img-fluid" src="<?= base_url('upload/artikel/' . $artikel["gambar"]) ?>" alt="">
                      </div>
                      <div class="blog_details">
-                       <h1><?= $artikel['judul']; ?></h1>
                        <ul class="blog-info-link mt-3 mb-4">
                           <li>"&nbsp;<?= $artikel['Tanggal']; ?>&nbsp;"</li>
                        </ul>
@@ -21,7 +21,7 @@
                           <?= $artikel['konten']; ?>
                        </h5>
                        <br>
-                       <h5 class="text-right">Sumber : <a href="<?= $artikel['sumber']; ?>"> <?= $artikel['sumber']; ?> </a></h5>
+                       <h5 class="text-right">Sumber : <a href="http://<?= $artikel['sumber'];?>"><?= $artikel['sumber']; ?></a></h5>
                    </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@
 		                     <?= $berita['konten']; ?>
 		                  </h5>
 		                  <br>
-	                      <h5 class="text-right">Sumber : <a href="<?= $berita['sumber']; ?>"> <?= $berita['sumber']; ?> </a></h5>
+	                      <h5 class="text-right">Sumber : <a href="http://<?= $berita['sumber']; ?>"> <?= $berita['sumber']; ?> </a></h5>
 		               </div>
 		            </div>
 		         </div>

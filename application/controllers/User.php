@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class User extends CI_Controller
+{
 
 	public function __construct()
 	{
@@ -49,7 +50,49 @@ class User extends CI_Controller {
 	{
 		# code...
 		$data['title'] = "Artikel";
-		$data['artikel'] = $this->user_model->getAllArtikel();
+
+		$semua = "all";
+		$tips = "1";
+		$mm = "2";
+		$p = "4";
+		$w = "5";
+
+		if (isset($_POST['kategori']) && ! empty($_POST['kategori'])) {
+			$kategori = $_POST['kategori'];
+
+			if ($kategori == 'tips') {
+				# code...
+				$ket = "Kategori yang dipilih : Tips";
+				$tampilKategori = $this->user_model->getKategori($tips);
+			}
+			else if ($kategori == 'makanan & minuman') {
+				# code...
+				$ket = "Kategori yang dipilih : Makanan & Minuman";
+				$tampilKategori = $this->user_model->getKategori($mm);
+			}
+			else if ($kategori == 'pria') {
+				# code...
+				$ket = "Kategori yang dipilih : Pria";
+				$tampilKategori = $this->user_model->getKategori($p);
+			}
+			else if ($kategori == 'wanita') {
+				# code...
+				$ket = "Kategori yang dipilih : Wanita";
+				$tampilKategori = $this->user_model->getKategori($w);
+			}
+			else if ($kategori== 'all') {
+				# code...
+				$ket = "Tampilkan Semua Artikel";
+				$tampilKategori = $this->user_model->getAllArtikel();
+			}
+		}
+		else {
+			$ket="";
+			$tampilKategori = $this->user_model->getAllArtikel();
+		}
+
+		$data['ket'] = $ket;
+		$data['data'] = $tampilKategori;
 
 		$this->load->view('user/header', $data);
 		$this->load->view('user/artikel', $data);
@@ -73,7 +116,7 @@ class User extends CI_Controller {
 	{
 		# code...
 		$data['title'] = "Donasi";
-		
+
 
 		$this->load->view('user/header', $data);
 		$this->load->view('user/donasi');
@@ -86,7 +129,6 @@ class User extends CI_Controller {
 	{
 		# code...
 		$data['title'] = "Kalendar Kesuburan";
-		
 
 		$this->load->view('user/header', $data);
 		$this->load->view('user/kalendar');
@@ -125,7 +167,7 @@ class User extends CI_Controller {
 		$data['title'] = "Diskusi";
 		$data['topik'] = $this->admin_model->getAllTopik();
 		$data['diskusi'] = $this->admin_model->hitung_diskusi();
-		
+
 		$this->form_validation->set_rules('topik', 'Topik', 'required');
 		$this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
 
@@ -146,7 +188,6 @@ class User extends CI_Controller {
 		$data['title'] = "Detail Diskusi";
 		$data['diskusi'] = $this->admin_model->hitung_diskusi();
 		$data['topik'] = $this->admin_model->getTopikById($id);
-		$data['komentar'] = $this->user_model->getAllTanggapan();
 
 		$this->form_validation->set_rules('pembahasan', 'Tanggapan', 'required');
 
@@ -155,10 +196,10 @@ class User extends CI_Controller {
 			$this->load->view('user/header', $data);
 			$this->load->view('user/detail_diskusi', $data);
 			$this->load->view('user/footer');
-		}
-		else {
+		} else {
 			$this->user_model->tambah_tanggapan($id);
-			redirect('user/detail_diskusi/'.$id , 'refresh');
+			echo "<script>alert('Success');</script>";
+			redirect('user/detail_diskusi/' . $id, 'refresh');
 		}
 	}
 

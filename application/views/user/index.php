@@ -3,9 +3,9 @@
         <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-xl-5 col-md-5">
                         <div class="illastrator_png">
-                            <img src="<?php echo base_url('asset/user/img/banner/edu_ilastration.png') ?>" alt="">
+                            <img src="<?php echo base_url('asset/user/img/banner/sexedu.png') ?>" alt="">
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6">
@@ -40,49 +40,50 @@
                         <div class="row">
 
                             <?php
-                            $query = $this->db->query("SELECT * FROM berita LIMIT 3");
+                            $query = $this->db->query("SELECT * FROM berita LIMIT 4");
 
                             if ($query === NULL) { ?>
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="section_title text-center mb-100">
-                                            <h4>Maaf, hari ini belum ada artikel</h4>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="section_title text-center mb-100">
+                                                <h4>Maaf, hari ini belum ada berita</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                                
-                            <?php 
+
+                                <?php
                             } else {
 
-                            foreach ($query->result_array() as $br) { ?>
+                                foreach ($query->result_array() as $br) { ?>
 
-                            <div class="col-xl-4 col-lg-4 col-md-6">
-                                <div class="single_courses">
-                                    <div class="thumb">
-                                        <a href="<?= base_url()?>user/detail_berita/<?= $br['id_berita'];?>">
-                                            <img width="362" height="250" src="<?= base_url('upload/berita/' . $br["foto"]) ?>" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="courses_info">
-                                        <h3><a href="<?= base_url()?>user/detail_berita/<?= $br['id_berita'];?>"><?php echo $br['judul']; ?></a></h3>
-                                        <div class="star_prise d-flex justify-content-between">
-                                            <div class="star">
-                                                <span></span>
+                                    <div class="col-xl-3 col-lg-4 col-md-3">
+                                        <div class="single_courses">
+                                            <div class="thumb">
+                                                <a href="<?= base_url() ?>user/detail_berita/<?= $br['id_berita']; ?>">
+                                                    <img width="262" height="150" src="<?= base_url('upload/berita/' . $br["foto"]) ?>" alt="">
+                                                </a>
                                             </div>
-                                            <div class="star">
-                                                <span>
-                                                    <?php echo $br['Tanggal']; ?>
-                                                </span>
+                                            <div class="courses_info">
+                                                <h4><a href="<?= base_url() ?>user/detail_berita/<?= $br['id_berita']; ?>"><?php echo $br['judul']; ?></a></h4>
+                                                <div class="star_prise d-flex justify-content-between">
+                                                    <div class="star">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="star">
+                                                        <span>
+                                                            <?php echo $br['Tanggal']; ?>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <?php } } ?>
+                            <?php }
+                            } ?>
 
                             <div class="col-xl-12">
                                 <div class="more_courses text-center">
@@ -102,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
+                    <div class="section_title text-center mb-90">
                         <h3>Artikel Untuk Anda</h3>
                         <p>
                             Artikel - artikel yang mungkin cocok juga untuk anda.
@@ -111,45 +112,46 @@
                 </div>
                 <div class="row">
 
-                <?php
-                $query = $this->db->query("SELECT * FROM artikel LIMIT 3");
+                    <?php
+                    $query = $this->db->query("SELECT * FROM artikel LIMIT 4");
 
-                if ($query === NULL) { ?>
+                    if ($query === NULL) { ?>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="section_title text-center mb-100">
-                                <h4>Maaf, hari ini belum ada artikel</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="section_title text-center mb-100">
+                                        <h4>Maaf, hari ini belum ada artikel</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                    
-                <?php 
-                } else {
 
-                foreach ($query->result_array() as $ar) { ?>
+                        <?php
+                    } else {
 
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_latest_blog">
-                        <div class="thumb">
-                            <a href="<?= base_url() ?>user/detail_artikel/<?= $ar['id_artikel']; ?>">
-                                <img width="362" height="250" src="<?= base_url('upload/artikel/' . $ar["gambar"]) ?>" alt="">
-                            </a>                            
-                        </div>
-                        <div class="content_blog">
-                            <div class="date">
-                                <p><?php echo $ar['Tanggal']; ?></p>
+                        foreach ($query->result_array() as $ar) { ?>
+
+                            <div class="col-xl-3 col-md-3">
+                                <div class="single_latest_blog">
+                                    <div class="thumb">
+                                        <a href="<?= base_url() ?>user/detail_artikel/<?= $ar['id_artikel']; ?>">
+                                            <img width="262" height="150" src="<?= base_url('upload/artikel/' . $ar["gambar"]) ?>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="content_blog">
+                                        <div class="date">
+                                            <p><?php echo $ar['Tanggal']; ?></p>
+                                        </div>
+                                        <div class="blog_meta">
+                                            <h4><a href="<?= base_url() ?>user/detail_artikel/<?= $ar['id_artikel']; ?>"><?php echo $ar['judul']; ?></a></h4>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="blog_meta">
-                                <h3><a href="<?= base_url()?>user/detail_artikel/<?= $ar['id_artikel'];?>"><?php echo $ar['judul']; ?></a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <?php } } ?>
+                    <?php }
+                    } ?>
 
                     <div class="col-xl-12">
                         <div class="more_courses text-center">
@@ -161,4 +163,3 @@
         </div>
     </div>
     <!-- our_latest_blog_end -->
-

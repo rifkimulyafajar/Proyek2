@@ -96,7 +96,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <!-- <a href="" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> -->
-                                Halo, <?= $this->session->userdata('user'); ?>
+                                Halo, <?= $this->session->userdata('user'); ?> &nbsp;
                                 <!-- </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown"> -->
                                 <!-- <a class="dropdown-item" href="<?= base_url(); ?>admin/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a> -->
@@ -119,7 +119,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 
-                                                <button type="button" class="btn btn-danger"><a href="<?= base_url(); ?>admin/logout">Log out</a></button>
+                                                <a type="button" class="btn btn-danger" href="<?= base_url(); ?>admin/logout">Log out</a>
                                             </div>
                             </li>
 

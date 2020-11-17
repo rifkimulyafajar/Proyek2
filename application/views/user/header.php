@@ -66,35 +66,35 @@
                             </div>
                         </div>
 
-                    <?php  if (!isset($_SESSION['user'])) : ?>
+                        <?php if (!isset($_SESSION['user'])) : ?>
 
-                        <div class="col-xl-2 col-lg-3 d-none d-lg-block">
-                            <div class="log_chat_area d-flex align-items-center">
-                                <div class="live_chat_btn">
-                                    <a class="boxed_btn_orange" href="<?php echo base_url('login'); ?>">
-                                        <i class="flaticon-user"></i>
-                                        <span>Log In</span>
-                                    </a>
+                            <div class="col-xl-2 col-lg-3 d-none d-lg-block">
+                                <div class="log_chat_area d-flex align-items-center">
+                                    <div class="live_chat_btn">
+                                        <a class="boxed_btn_orange" href="<?php echo base_url('login'); ?>">
+                                            <i class="flaticon-user"></i>
+                                            <span>Log In</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    <?php endif;
+                        <?php endif;
+                        if (isset($_SESSION['user'])) : ?>
 
-                    if (isset($_SESSION['user'])) : ?>
-
-                        <div class="col-xl-2 col-lg-3 d-none d-lg-block">
-                            <div class="log_chat_area d-flex align-items-center">
-                                <div class="live_chat_btn">
-                                    <a class="boxed_btn_orange" href="<?php echo base_url('user/logout'); ?>">
-                                        <i class="fa fa-sign-out"></i>
-                                        <span>Log Out</span>
-                                    </a>
+                            <div class="col-xl-2 col-lg-3 d-none d-lg-block">
+                                <div class="log_chat_area d-flex align-items-center">
+                                    <div class="live_chat_btn">
+                                        <a class="boxed_btn_orange" href="<?php echo base_url('user/logout'); ?>">
+                                            <span><?php echo $_SESSION['user'] . "&nbsp;&nbsp;|" ?></span>
+                                            <span>Log out &nbsp;</span>
+                                            <i class="fa fa-sign-out"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>    
 
-                    <?php endif ?>
+                        <?php endif ?>
 
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

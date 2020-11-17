@@ -30,13 +30,20 @@ class user_model extends CI_Model
         return $query->row_array();
     }
 
+    public function getKategori($kategori)
+    {
+        # code...
+        $query = $this->db->get_where('artikel', array('id_kategori' => $kategori));
+        return $query->result_array();
+    }
+
     // ====================== ARTIKEL ==================================================
 
     public function getAllTanggapan($id)
     {
         # code...
-       $query = $this->db->get_where('diskusi', array('id_topik' => $id));
-       return $query->result_array();
+        $query = $this->db->get_where('diskusi', array('id_topik' => $id));
+        return $query->result_array();
     }
 
     public function tambah_tanggapan($id)

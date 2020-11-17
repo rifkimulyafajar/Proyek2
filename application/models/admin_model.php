@@ -64,11 +64,18 @@ class admin_model extends CI_Model
         return $query->row_array();
     }
 
+    public function getKategori()
+    {
+        $query = $this->db->get('kategori_artikel');
+        return $query->result_array();
+    }
+
     public function tambah_artikel()
     {
         $this->id_artikel = uniqid();
         $data = [
             "judul" => $this->input->post('judul', true),
+            "id_kategori" => $this->input->post('id_kategori', true),
             "Tanggal" => $this->input->post('Tanggal', true),
             "gambar" => $this->uploadImage(),
             "sumber" => $this->input->post('sumber', true),
@@ -97,6 +104,8 @@ class admin_model extends CI_Model
         $post = $this->input->post();
         $this->id_artikel = $post["id_artikel"];
         $this->judul = $post["judul"];
+        $this->id_kategori = $post["id_kategori"];
+        $this->tanggal = $post["tanggal"];
         $this->gambar = $this->uploadimage();
         $this->sumber = $post["sumber"];
         $this->konten = $post["konten"];
@@ -128,6 +137,7 @@ class admin_model extends CI_Model
         $data = [
             "judul" => $this->input->post('judul', true),
             "Tanggal" => $this->input->post('Tanggal', true),
+            // "kategori" => $this->input->post('id_kategori', true),
             "foto" => $this->uploadImage1(),
             "sumber" => $this->input->post('sumber', true),
             "konten" => $this->input->post('konten', true),
@@ -213,6 +223,23 @@ class admin_model extends CI_Model
         return $query->result_array();
     }
 
+    public function FilterDonasi($bulan)
+    {
+        # code...
+        $query = $this->db->get_where('donasi', array('MONTH(tgl_donasi)' => $bulan));
+        return $query->result_array();
+    }
+    // public function FilterDonasibulan($month)
+    // {
+    //     # code...
+    //     $query = $this->db->get_where('donasi', array('MONTH(tgl_donasi)' => $month));
+    //     return $query->result_array();
+    // }
+    public function hapus_donasi($id)
+    {
+        return $this->db->delete('donasi', array("id_donasi" => $id));
+    }
+
     //KALENDER
     public function getAllKalender()
     {
@@ -225,10 +252,16 @@ class admin_model extends CI_Model
         return $this->db->delete('kalender', array("id_kalender" => $id));
     }
 
+
     //DETAIL DISKUSI
     public function getAllDetailDiskusi()
     {
         $query = $this->db->get('diskusi');
         return $query->result_array();
+    }
+
+    public function hapus_diskusi($id)
+    {
+        return $this->db->delete('diskusi', array("id_diskusi" => $id));
     }
 }
