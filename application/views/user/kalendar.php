@@ -10,16 +10,18 @@
 	                    <div class="section_title text-center mb-100">
 	                    	<img src="<?php echo base_url('asset/user/img/kalendar.png') ?>" width=100 height=100>
 	                        <h3>Kalendar Kesuburan</h3>
-	                        <p>Hitung dari hari pertama menstruasi dalam satu bulan hingga ke bulan berikutnya. <br>
-	                        	Misalkan di bulan Juni anda datang bulan pada tanggal 1, lalu di bulan Juli pada tanggal 2. <br>
-	                        	Jarak waktu 1 Juni hingga 2 Juli adalah 32 hari. <br>
-	                        	Disarankan untuk menghitung siklus menstruasi selama 6 hingga 12 bulan.
+	                        <p>Masa subur berada di sekitar ovulasi, kurang lebih 5 hari sebelum ovulasi ini terjadi.<br>
+	                        	Biasanya, masa subur wanita ialah 12 hingga 16 hari sebelum masa datang bulan berikutnya.<br>
+	                        	Sehingga, rata-rata wanita mengalami masa subur di hari ke 10 sampai 17 sesudah pertama haid terakhir.
 	                        </p>
 	                    </div>
 	                </div>
 	                <div class="col-lg-12">
-	                	<form class="form-contact contact_form" action="<?= base_url()?>user/kalendar" method="post" novalidate="novalidate">
-		                	<div class="row">
+	                	
+	                	<form class="form-contact contact_form" action="<?= base_url()?>user/kalendar" method="post">
+
+							<div class="row">
+		                		<input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user'); ?>">
 		                        <div class="col-sm-12">
 		                           	<div class="form-group">
 		                           		<label>Hari pertama haid terakhir Anda</label>
@@ -71,6 +73,7 @@
 									$akhir = date('d-F-Y', strtotime('+'.$hasil2.' days', strtotime($tanggal)));
 
 		                    	?>
+		                    	<input type="hidden" name="hasil" value="<?php echo $awal.' Sampai '.$akhir; ?>">
 		                    	<br>
 		                    	<center>
 		                    		<div class="card text-center">
@@ -89,6 +92,7 @@
 		                    	</center>
 
 		                    	<?php } ?>
+
 		                    </div>
 	                    </form>
 	                </div>

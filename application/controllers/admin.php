@@ -303,9 +303,23 @@ class admin extends CI_Controller
 					$this->pdf->filename = "laporandonasi.pdf";
 					$this->pdf->load_view('admin/laporandonasi', $data);
 				}
-				else if ($bulan == 'all') {
-					# code...
-					$transaksi = $this->admin_model->getAllDonasi();
+				
+				else if (isset($_GET['tampil'])) {
+					if ($bulan == 'all') {
+						$transaksi = $this->admin_model->getAllDonasi();
+					}
+					else {
+						$transaksi = $this->admin_model->FilterDonasi($bulan);
+					}
+				}
+
+				else if (isset($_GET['excel'])) {
+					$transaksi = $this->admin_model->FilterDonasi($bulan);
+					header("Content-type: application/vnd-ms-excel");
+					header("Content-Disposition: attachment; filename=Laporan Donasi.xls");
+
+					$data['donasi'] = $this->admin_model->FilterDonasi($bulan);
+					$this->load->view('admin/exportdonasi2', $data);
 				}
 				else {
 					$transaksi = $this->admin_model->FilterDonasi($bulan);
