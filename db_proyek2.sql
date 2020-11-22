@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 05:14 AM
+-- Generation Time: Nov 22, 2020 at 03:18 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -104,11 +104,13 @@ INSERT INTO `diskusi` (`id_diskusi`, `id_topik`, `nama`, `pembahasan`, `tanggal`
 CREATE TABLE `donasi` (
   `id_donasi` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `id_tujuan` int(11) NOT NULL,
   `nama_lengkap` varchar(225) NOT NULL,
   `no_hp` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `jmlh_donasi` varchar(225) NOT NULL,
   `metode` varchar(225) NOT NULL,
+  `bukti_tf` varchar(225) NOT NULL,
   `note` varchar(225) NOT NULL,
   `tgl_donasi` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -117,9 +119,8 @@ CREATE TABLE `donasi` (
 -- Dumping data for table `donasi`
 --
 
-INSERT INTO `donasi` (`id_donasi`, `id_user`, `nama_lengkap`, `no_hp`, `email`, `jmlh_donasi`, `metode`, `note`, `tgl_donasi`) VALUES
-(1, 3, 'rahmanian essa', '08567182903', 'nian@gmail.com', '200.000', 'bni', 'nbxsb', '2020-11-09'),
-(2, 7, 'shania bunga', '08689162793', 'shania@gmail.com', '200.000', 'bri', 'nbxhsabh', '2020-10-13');
+INSERT INTO `donasi` (`id_donasi`, `id_user`, `id_tujuan`, `nama_lengkap`, `no_hp`, `email`, `jmlh_donasi`, `metode`, `bukti_tf`, `note`, `tgl_donasi`) VALUES
+(7, 9, 6, 'Rahmanenen', '087123456176', 'nenen@gmail.com', '200000', 'linkaja', '', 'gae tumbas es', '2020-11-21');
 
 -- --------------------------------------------------------
 
@@ -188,6 +189,36 @@ INSERT INTO `topik` (`id_topik`, `topik`, `nama`, `tanggal`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tujuan_donasi`
+--
+
+CREATE TABLE `tujuan_donasi` (
+  `id_tujuan` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `deskripsi` varchar(5000) NOT NULL,
+  `totaldana` varchar(1000) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `bni` varchar(50) NOT NULL,
+  `bri` varchar(50) NOT NULL,
+  `bca` varchar(50) NOT NULL,
+  `linkaja` varchar(50) NOT NULL,
+  `dana` varchar(50) NOT NULL,
+  `mandiri` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tujuan_donasi`
+--
+
+INSERT INTO `tujuan_donasi` (`id_tujuan`, `nama`, `alamat`, `deskripsi`, `totaldana`, `image`, `bni`, `bri`, `bca`, `linkaja`, `dana`, `mandiri`) VALUES
+(6, 'Rahmanian', 'Lamongan', 'bantu yukk jangan buat kuota mulu', '100000000', '6.png', '11', '22', '33', '44', '55', '1000'),
+(8, 'panti asuhan inii', 'dimana mana hatiku senang', 'bantu yukk jangan buat kuota mulu', '300000', '5fb8c284cc481.png', '12', '34', '56', '78', '90', '100'),
+(9, 'namaa', 'alamat', 'desk', '10', '', '12', '23', '34', '45', '56', '78');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -248,7 +279,8 @@ ALTER TABLE `diskusi`
 --
 ALTER TABLE `donasi`
   ADD PRIMARY KEY (`id_donasi`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_tujuan` (`id_tujuan`);
 
 --
 -- Indexes for table `kalender`
@@ -268,6 +300,12 @@ ALTER TABLE `kategori_artikel`
 --
 ALTER TABLE `topik`
   ADD PRIMARY KEY (`id_topik`);
+
+--
+-- Indexes for table `tujuan_donasi`
+--
+ALTER TABLE `tujuan_donasi`
+  ADD PRIMARY KEY (`id_tujuan`);
 
 --
 -- Indexes for table `user`
@@ -301,7 +339,7 @@ ALTER TABLE `diskusi`
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id_donasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_donasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kalender`
@@ -319,7 +357,13 @@ ALTER TABLE `kategori_artikel`
 -- AUTO_INCREMENT for table `topik`
 --
 ALTER TABLE `topik`
-  MODIFY `id_topik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_topik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tujuan_donasi`
+--
+ALTER TABLE `tujuan_donasi`
+  MODIFY `id_tujuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -347,7 +391,8 @@ ALTER TABLE `diskusi`
 -- Constraints for table `donasi`
 --
 ALTER TABLE `donasi`
-  ADD CONSTRAINT `donasi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `donasi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
+  ADD CONSTRAINT `donasi_ibfk_2` FOREIGN KEY (`id_tujuan`) REFERENCES `tujuan_donasi` (`id_tujuan`);
 
 --
 -- Constraints for table `kalender`

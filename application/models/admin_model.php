@@ -216,6 +216,77 @@ class admin_model extends CI_Model
         return $this->db->delete('topik', array("id_topik" => $id));
     }
 
+    //TUJUAN DONASI
+    public function getAllTujuan()
+    {
+        $query = $this->db->get('tujuan_donasi');
+        return $query->result_array();
+    }
+
+    public function getTujuanById($id)
+    {
+        $query = $this->db->get_where('tujuan_donasi', array('id_tujuan' => $id));
+        return $query->row_array();
+    }
+
+    public function tambah_tujuan()
+    {
+        $this->id_tujuan = uniqid();
+        $data = [
+            "nama" => $this->input->post('nama', true),
+            "alamat" => $this->input->post('alamat', true),
+            "deskripsi" => $this->input->post('deskripsi', true),
+            "totaldana" => $this->input->post('totaldana', true),
+            "image" => $this->uploadImage2(),
+            "bni" => $this->input->post('bni', true),
+            "bri" => $this->input->post('bri', true),
+            "bca" => $this->input->post('bca', true),
+            "linkaja" => $this->input->post('linkaja', true),
+            "dana" => $this->input->post('dana', true),
+            "mandiri" => $this->input->post('mandiri', true),
+        ];
+        $this->db->insert('tujuan_donasi', $data);
+    }
+
+    public function uploadImage2()
+    {
+        $config['upload_path'] = './upload/tujuandonasi/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['file_name'] = $this->id_tujuan;
+        $config['overwrite'] = true;
+        // $config['max_size'] = 1024;
+
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('image')) {
+            return $this->upload->data("file_name");
+        }
+    }
+
+    public function edit_tujuan()
+    {
+        $post = $this->input->post();
+        $this->id_tujuan = $post["id_tujuan"];
+        $this->nama = $post["nama"];
+        $this->alamat = $post["alamat"];
+        $this->deskripsi = $post["deskripsi"];
+        $this->totaldana = $post["totaldana"];
+        $this->image = $this->uploadimage2();
+        $this->bni = $post["bni"];
+        $this->bri = $post["bri"];
+        $this->bca = $post["bca"];
+        $this->linkaja = $post["linkaja"];
+        $this->dana = $post["dana"];
+        $this->mandiri = $post["mandiri"];
+
+        $this->db->update('tujuan_donasi', $this, array('id_tujuan' => $post['id_tujuan']));
+    }
+
+    public function hapus_tujuan($id)
+    {
+        return $this->db->delete('tujuan_donasi', array("id_tujuan" => $id));
+    }
+
     //DONASI
     public function getAllDonasi()
     {
@@ -223,21 +294,16 @@ class admin_model extends CI_Model
         return $query->result_array();
     }
 
+    public function hapus_donasi($id)
+    {
+        return $this->db->delete('donasi', array("id_donasi" => $id));
+    }
+
     public function FilterDonasi($bulan)
     {
         # code...
         $query = $this->db->get_where('donasi', array('MONTH(tgl_donasi)' => $bulan));
         return $query->result_array();
-    }
-    // public function FilterDonasibulan($month)
-    // {
-    //     # code...
-    //     $query = $this->db->get_where('donasi', array('MONTH(tgl_donasi)' => $month));
-    //     return $query->result_array();
-    // }
-    public function hapus_donasi($id)
-    {
-        return $this->db->delete('donasi', array("id_donasi" => $id));
     }
 
     //KALENDER
@@ -251,7 +317,6 @@ class admin_model extends CI_Model
     {
         return $this->db->delete('kalender', array("id_kalender" => $id));
     }
-
 
     //DETAIL DISKUSI
     public function getAllDetailDiskusi()

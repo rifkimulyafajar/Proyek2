@@ -7,8 +7,6 @@ class admin extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('admin_model');
-		$this->load->model('Cetak_modeldonasi');
-
 		$this->load->library('form_validation');
 	}
 
@@ -25,7 +23,6 @@ class admin extends CI_Controller
 			$data['topik'] = $this->admin_model->hitung_topik();
 			$data['kalender'] = $this->admin_model->hitung_kalender();
 			$data['donasi'] = $this->admin_model->hitung_donasi();
-			// $data['laporandonasi'] = $this->Cetak_modeldonasi->datatabels();
 
 			$this->load->view('template/headeradmin', $data);
 			$this->load->view('admin/index', $data);
@@ -121,6 +118,7 @@ class admin extends CI_Controller
 			redirect('login/index');
 		}
 	}
+
 
 	// BERITA
 	public function data_berita()
@@ -278,6 +276,98 @@ class admin extends CI_Controller
 		}
 	}
 
+	//TUJUAN DONASI
+	public function data_tujuan()
+	{
+		if (isset($_SESSION['user'])) {
+
+			$data['title'] = 'Data Tujuan Donasi';
+			$data['tujuan_donasi'] = $this->admin_model->getAllTujuan();
+
+			$this->load->view('template/headeradmin', $data);
+			$this->load->view('admin/data_tujuan', $data);
+			$this->load->view('template/footeradmin');
+		} else {
+			redirect('login/index');
+		}
+	}
+
+	public function tambah_tujuan()
+	{
+		if (isset($_SESSION['user'])) {
+
+			$data['title'] = 'Tambah Data Tujuan Donasi';
+
+			$this->form_validation->set_rules('nama', 'nama', 'required');
+			$this->form_validation->set_rules('alamat', 'alamat', 'required');
+			$this->form_validation->set_rules('deskripsi', 'deskripsi', 'required');
+			$this->form_validation->set_rules('totaldana', 'totaldana', 'required');
+			$this->form_validation->set_rules('bni', 'bni', 'required');
+			$this->form_validation->set_rules('bri', 'bri', 'required');
+			$this->form_validation->set_rules('bca', 'bca', 'required');
+			$this->form_validation->set_rules('linkaja', 'linkaja', 'required');
+			$this->form_validation->set_rules('dana', 'dana', 'required');
+			$this->form_validation->set_rules('mandiri', 'mandiri', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('template/headeradmin', $data);
+				$this->load->view('admin/tambah_tujuan', $data);
+				$this->load->view('template/footeradmin');
+			} else {
+				$this->admin_model->tambah_tujuan();
+				echo "<script>alert('Anda berhasil menambah data');</script>";
+				redirect('admin/data_tujuan', 'refresh');
+			}
+		} else {
+			redirect('login/index');
+		}
+	}
+
+	public function edit_tujuan($id)
+	{
+		if (isset($_SESSION['user'])) {
+
+			$data['title'] = 'Edit Tujuan Donasi';
+			$data['tujuan_donasi1'] = $this->admin_model->getTujuanById($id);
+
+			$this->form_validation->set_rules('nama', 'nama', 'required');
+			$this->form_validation->set_rules('alamat', 'alamat', 'required');
+			$this->form_validation->set_rules('deskripsi', 'deskripsi', 'required');
+			$this->form_validation->set_rules('totaldana', 'totaldana', 'required');
+			$this->form_validation->set_rules('bni', 'bni', 'required');
+			$this->form_validation->set_rules('bri', 'bri', 'required');
+			$this->form_validation->set_rules('bca', 'bca', 'required');
+			$this->form_validation->set_rules('linkaja', 'linkaja', 'required');
+			$this->form_validation->set_rules('dana', 'dana', 'required');
+			$this->form_validation->set_rules('mandiri', 'mandiri', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('template/headeradmin', $data);
+				$this->load->view('admin/edit_tujuan', $data);
+				$this->load->view('template/footeradmin');
+			} else {
+				$this->admin_model->edit_tujuan();
+				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				redirect('admin/data_tujuan', 'refresh');
+			}
+		} else {
+			redirect('login/index');
+		}
+	}
+	public function hapus_tujuan($id)
+	{
+		if (isset($_SESSION['user'])) {
+
+			if ($this->admin_model->hapus_tujuan($id)) {
+				$this->session->set_flashdata('hapus_tujuan', true);
+			} else {
+				$this->session->set_flashdata('hapus_tujuan', false);
+			}
+			redirect('admin/data_tujuan', 'refresh');
+		} else {
+			redirect('login/index');
+		}
+	}
 
 	//DONASI
 	public function data_donasi()
@@ -301,30 +391,23 @@ class admin extends CI_Controller
 
 					$this->pdf->setPaper('A4', 'landscape');
 					$this->pdf->filename = "laporandonasi.pdf";
-					$this->pdf->load_view('admin/laporandonasi', $data);
-				}
-				
-				else if (isset($_GET['tampil'])) {
+					$this->pdf->load_view('admin/laporandonasi2', $data);
+				} else if (isset($_GET['tampil'])) {
 					if ($bulan == 'all') {
 						$transaksi = $this->admin_model->getAllDonasi();
-					}
-					else {
+					} else {
 						$transaksi = $this->admin_model->FilterDonasi($bulan);
 					}
-				}
-
-				else if (isset($_GET['excel'])) {
+				} else if (isset($_GET['excel'])) {
 					$transaksi = $this->admin_model->FilterDonasi($bulan);
 					header("Content-type: application/vnd-ms-excel");
 					header("Content-Disposition: attachment; filename=Laporan Donasi.xls");
 
 					$data['donasi'] = $this->admin_model->FilterDonasi($bulan);
 					$this->load->view('admin/exportdonasi2', $data);
-				}
-				else {
+				} else {
 					$transaksi = $this->admin_model->FilterDonasi($bulan);
 				}
-				
 			} else {
 				$transaksi = $this->admin_model->getAllDonasi();
 			}
@@ -338,39 +421,29 @@ class admin extends CI_Controller
 			redirect('login/index');
 		}
 	}
-	
-	public function tampildata()
+
+	public function laporandonasi()
 	{
-		$data['title'] = 'Data Donasi';
 
-		if (isset($_SESSION['user'])) {
+		$this->load->library('pdf');
 
-			if (isset($_GET['bulan']) && !empty($_GET['bulan'])) {
+		$this->load->model('Cetak_modeldonasi');
+		$data['donasi'] = $this->Cetak_modeldonasi->viewlaporandonasi();
+		$this->load->library('pdf');
 
-				$bulan = $_GET['bulan'];
+		$this->pdf->setPaper('A4', 'landscape');
+		$this->pdf->filename = "laporandonasi.pdf";
+		$this->pdf->load_view('admin/laporandonasi', $data);
+	}
 
-				$nama_bulan = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+	public function exportdonasi()
+	{
+		// Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excel
+		header("Content-type: application/vnd-ms-excel");
+		header("Content-Disposition: attachment; filename=Laporan Donasi.xls");
 
-				$transaksi = $this->admin_model->FilterDonasi($bulan);
-				// header("Content-type: application/vnd-ms-excel");
-				// header("Content-Disposition: attachment; filename=Laporan Donasi.xls");
-
-				// $data['donasi'] = $this->admin_model->FilterDonasi($bulan);
-				// $this->load->view('admin/exportdonasi', $data);
-			} else {
-				$transaksi = $this->admin_model->getAllDonasi();
-			}
-
-			$data['data'] = $transaksi;
-
-			// $data['berita'] = $this->admin_model->getAllBerita();
-
-			$this->load->view('template/headeradmin', $data);
-			$this->load->view('admin/data_donasi', $data);
-			$this->load->view('template/footeradmin');
-		} else {
-			redirect('login/index');
-		}
+		$data['donasi'] = $this->Cetak_modeldonasi->viewlaporandonasi();
+		$this->load->view('admin/exportdonasi', $data);
 	}
 
 	public function hapus_donasi($id)
@@ -455,28 +528,5 @@ class admin extends CI_Controller
 		$this->session->sess_destroy();
 		echo "<script>alert('Anda berhasil Logout');</script>";
 		redirect('login/index', 'refresh');
-	}
-	public function laporandonasi()
-	{
-
-
-		$this->load->library('pdf');
-
-		$this->load->model('Cetak_modeldonasi');
-		$data['donasi'] = $this->Cetak_modeldonasi->viewlaporandonasi();
-		$this->load->library('pdf');
-
-		$this->pdf->setPaper('A4', 'landscape');
-		$this->pdf->filename = "laporandonasi.pdf";
-		$this->pdf->load_view('admin/laporandonasi2', $data);
-	}
-	public function exportdonasi()
-	{
-		// Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excel
-		header("Content-type: application/vnd-ms-excel");
-		header("Content-Disposition: attachment; filename=Laporan Donasi.xls");
-
-		$data['donasi'] = $this->Cetak_modeldonasi->viewlaporandonasi();
-		$this->load->view('admin/exportdonasi', $data);
 	}
 }
