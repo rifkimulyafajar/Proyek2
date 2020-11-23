@@ -2,33 +2,33 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="<?php echo base_url('assetsadmin/images/favicon.ico') ?>" type="image/ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?php echo base_url('assetsadmin/images/favicon.ico') ?>" type="image/ico" />
 
-  <title><?= $title ?></title>
+    <title><?= $title ?></title>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/bootstrap/dist/css/bootstrap.min.css') ?>">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/font-awesome/css/font-awesome.min.css') ?>">
-  <!-- NProgress -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/nprogress/nprogress.css') ?>">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/iCheck/skins/flat/green.css') ?>">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/bootstrap/dist/css/bootstrap.min.css') ?>">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/font-awesome/css/font-awesome.min.css') ?>">
+    <!-- NProgress -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/nprogress/nprogress.css') ?>">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/iCheck/skins/flat/green.css') ?>">
 
-  <!-- bootstrap-progressbar -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') ?>">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/jqvmap/dist/jqvmap.min.css') ?>" />
-  <!-- bootstrap-daterangepicker -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/bootstrap-daterangepicker/daterangepicker.css') ?>">
+    <!-- bootstrap-progressbar -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') ?>">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/jqvmap/dist/jqvmap.min.css') ?>" />
+    <!-- bootstrap-daterangepicker -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/vendors/bootstrap-daterangepicker/daterangepicker.css') ?>">
 
-  <!-- Custom Theme Style -->
-  <link rel="stylesheet" href="<?php echo base_url('assetsadmin/build/css/custom.min.css') ?>">
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="<?php echo base_url('assetsadmin/build/css/custom.min.css') ?>">
 </head>
 
 <body class="nav-md">
@@ -60,7 +60,12 @@
                                         <li><a href="<?= base_url(); ?>admin/data_detailDiskusi">Detail diskusi</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="<?= base_url(); ?>admin/data_Donasi"><i class="fa fa-clone"></i>Donasi</a></li>
+                                <!-- <li><a href="<?= base_url(); ?>admin/data_Donasi"><i class="fa fa-clone"></i>Donasi</a></li> -->
+                                <li><a><i class="fa fa-edit"></i> Donasi <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?= base_url(); ?>admin/data_tujuan">Tujuan Donasi</a></li>
+                                        <li><a href="<?= base_url(); ?>admin/data_Donasi">Donasi</a></li>
+                                    </ul>
                             </ul>
                         </div>
 
@@ -96,7 +101,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <!-- <a href="" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> -->
-                                Halo, <?= $this->session->userdata('user'); ?> &nbsp;
+                                Halo, <?= $this->session->userdata('user'); ?>
                                 <!-- </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown"> -->
                                 <!-- <a class="dropdown-item" href="<?= base_url(); ?>admin/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a> -->
@@ -119,7 +124,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 
-                                                <a type="button" class="btn btn-danger" href="<?= base_url(); ?>admin/logout">Log out</a>
+                                                <button type="button" class="btn btn-danger"><a href="<?= base_url(); ?>admin/logout">Log out</a></button>
                                             </div>
                             </li>
 

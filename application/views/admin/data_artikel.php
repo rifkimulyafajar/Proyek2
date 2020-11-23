@@ -44,6 +44,7 @@
                                     <td><?= $a["sumber"]; ?></td>
                                     <td><?= $a["konten"]; ?></td>
                                     <td>
+
                                         <a href="<?= base_url(); ?>admin/edit_artikel/<?= $a['id_artikel']; ?>" class="btn btn-success"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                         <!-- Button trigger modal -->
                                         <a data-toggle="modal" data-target="#exampleModal-<?= $a['id_artikel']; ?>" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> </i></a>
@@ -68,6 +69,8 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                    
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

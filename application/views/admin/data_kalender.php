@@ -7,6 +7,7 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Kalender</h6>
             </div>
+
             <!-- alerthapus -->
             <?php if ($this->session->flashdata('hapus_kalender')) : ?>
                 <?php if ($this->session->flashdata('hapus_kalender') == TRUE) : ?>
@@ -71,10 +72,10 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 </div>

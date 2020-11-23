@@ -46,57 +46,6 @@
 
                                 <?php endforeach; ?>
 
-                                <!-- <div class="col-xl-4 col-lg-4 col-md-6">
-                                <div class="single_courses">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img width="362" height="250" src="<?php //echo base_url('asset/user/img/default.jpg') 
-                                                                                ?>" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="courses_info">
-                                        <h3><a href="#">----- Judul Berta -----</a></h3>
-                                        <div class="star_prise d-flex justify-content-between">
-                                            <div class="star">
-                                                <span>Penulis Berita</span>
-                                            </div>
-                                            <div class="star">
-                                                <span>
-                                                    Tanggal Berita
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6">
-                                <div class="single_courses">
-                                    <div class="thumb">
-                                        <a href="#">
-                                        <img width="362" height="250" src="<?php //echo base_url('asset/user/img/default.jpg') 
-                                                                            ?>" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="courses_info">
-                                        <h3><a href="#">----- Judul Berta -----</a></h3>
-                                        <div class="star_prise d-flex justify-content-between">
-                                            <div class="star">
-                                                <span>Penulis Berita</span>
-                                            </div>
-                                            <div class="star">
-                                                <span>
-                                                    Tanggal Berita
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                                <!-- <div class="col-xl-12">
-                                    <div class="more_courses text-center">
-                                        <a href="#" class="boxed_btn_rev">More Courses</a>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>

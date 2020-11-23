@@ -18,7 +18,7 @@
 
 
             <div class="col-xl-12">
-                <form method="get" action="">
+                <form method="get" action="<?php echo base_url("admin/data_donasi") ?>">
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Filter Donasi Berdasarkan Bulan</label>
@@ -48,13 +48,13 @@
 
                             <button type="sumbit" name="tampil" value="tampil" class="btn btn-primary">Tampilkan</button>
                             <button type="sumbit" name="cetak" value="cetak" class="btn btn-primary">Cetak</button>
-                            <button type="sumbit" name="excel" value="excel" class="btn btn-primary">Export Excel Per-Bulan</button>
-                            <a href="<?= base_url(); ?>admin/laporandonasi/" type="button" class="btn btn-primary">Cetak Semua Laporan Donasi</button>
-                            <a href="<?= base_url(); ?>admin/exportdonasi/" type="button" class="btn btn-primary">Export Laporan Donasi</a>
+                            <button type="sumbit" name="excel" value="excel" class="btn btn-primary">Export</button>
 
-                        </center>
-                    </div>
-                </form>
+                            <a type="button" class="btn btn-primary" href="<?= base_url(); ?>admin/laporandonasi/">Cetak Semua Laporan Donasi</a>
+                            <a type="button" class="btn btn-primary" href="<?= base_url(); ?>admin/exportdonasi/">Export Semua Laporan Donasi</a>
+                        </center> 
+                    </div> 
+                </form> 
             </div> <br>
 
                                 <div class="card-body">
@@ -69,6 +69,7 @@
                                                     <th>Email</th>
                                                     <th>Jumlah</th>
                                                     <th>Metode</th>
+                                                    <th>Bukti TF</th>
                                                     <th>Note</th>
                                                     <th>Tanggal</th>
                                                     <th>Aksi</th>
@@ -85,6 +86,7 @@
                                                         <td><?= $d["email"]; ?></td>
                                                         <td><?= $d["jmlh_donasi"]; ?></td>
                                                         <td><?= $d["metode"]; ?></td>
+                                                        <td><?= $d["bukti_tf"]; ?></td>
                                                         <td><?= $d["note"]; ?></td>
                                                         <td><?= $d["tgl_donasi"]; ?></td>
                                                         <td>

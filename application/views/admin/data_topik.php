@@ -2,11 +2,12 @@
 <div class="right_col" role="main">
     <!-- top tiles -->
     <div class="container-fluid">
-        <h1 class="h3 mb-2 text-gray-800">Data Topik</h1>
+        <h1 class="h3 mb-2 text-gray-800">Data Topik Diskusi</h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Topik</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Topik Diskusi</h6>
             </div>
+
             <!-- alerthapus -->
             <?php if ($this->session->flashdata('hapus_topik')) : ?>
                 <?php if ($this->session->flashdata('hapus_topik') == TRUE) : ?>
@@ -42,6 +43,8 @@
                                         <!-- Button trigger modal -->
                                         <a data-toggle="modal" data-target="#exampleModal-<?= $t['id_topik']; ?>" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"> </i></a>
 
+
+
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal-<?= $t['id_topik']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
@@ -62,6 +65,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
