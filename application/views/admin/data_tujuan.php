@@ -26,14 +26,7 @@
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Deskripsi</th>
-                                <th>Biaya</th>
                                 <th>Gambar</th>
-                                <th>BNI</th>
-                                <th>BRI</th>
-                                <th>BCA</th>
-                                <th>LinkAja</th>
-                                <th>DANA</th>
-                                <th>Mandiri</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -45,14 +38,7 @@
                                     <td><?= $td["nama"]; ?></td>
                                     <td><?= $td["alamat"]; ?></td>
                                     <td><?= $td["deskripsi"]; ?></td>
-                                    <td><?= $td["totaldana"]; ?></td>
                                     <td><img src="<?= base_url('upload/tujuandonasi/' . $td["image"]) ?>" style="height: 100px; width: 100px;"></td>
-                                    <td><?= $td["bni"]; ?></td>
-                                    <td><?= $td["bri"]; ?></td>
-                                    <td><?= $td["bca"]; ?></td>
-                                    <td><?= $td["linkaja"]; ?></td>
-                                    <td><?= $td["dana"]; ?></td>
-                                    <td><?= $td["mandiri"]; ?></td>
                                     <td>
                                         <a href="<?= base_url(); ?>admin/edit_tujuan/<?= $td['id_tujuan']; ?>" class="btn btn-success"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                         <!-- Button trigger modal -->
@@ -73,7 +59,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                        <button type="button" class="btn btn-primary"><a href="<?= base_url(); ?>admin/hapus_tujuan/<?= $td['id_tujuan']; ?>">Hapus</a></button>
+                                                        <a class="btn btn-danger" href="<?= base_url(); ?>admin/hapus_tujuan/<?= $td['id_tujuan']; ?>">Hapus</a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -32,37 +32,9 @@
                     <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="<?= $tujuan_donasi1['deskripsi']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="totaldana">Biaya</label>
-                    <input type="text" class="form-control" id="totaldana" name="totaldana" value="<?= $tujuan_donasi1['totaldana']; ?>">
-                </div>
-                <div class="form-group">
                     <label for="image">Gambar</label>
                     <input type="file" class="form-control" id="image" name="image">
                     <p>Format .jpg, .png Max Size : 500KB</p>
-                </div>
-                <div class="form-group">
-                    <label for="bni">BNI</label>
-                    <input type="text" class="form-control" id="bni" name="bni" value="<?= $tujuan_donasi1['bni']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="bri">BRI</label>
-                    <input type="text" class="form-control" id="bri" name="bri" value="<?= $tujuan_donasi1['bri']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="bca">BCA</label>
-                    <input type="text" class="form-control" id="bca" name="bca" value="<?= $tujuan_donasi1['bca']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="linkaja">LinkAja</label>
-                    <input type="text" class="form-control" id="linkaja" name="linkaja" value="<?= $tujuan_donasi1['linkaja']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="dana">Dana</label>
-                    <input type="text" class="form-control" id="dana" name="dana" value="<?= $tujuan_donasi1['dana']; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="mandiri">Mandiri</label>
-                    <input type="text" class="form-control" id="mandiri" name="mandiri" value="<?= $tujuan_donasi1['mandiri']; ?>">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary float-right">Edit</button>
             </form>

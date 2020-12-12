@@ -301,13 +301,6 @@ class admin extends CI_Controller
 			$this->form_validation->set_rules('nama', 'nama', 'required');
 			$this->form_validation->set_rules('alamat', 'alamat', 'required');
 			$this->form_validation->set_rules('deskripsi', 'deskripsi', 'required');
-			$this->form_validation->set_rules('totaldana', 'totaldana', 'required');
-			$this->form_validation->set_rules('bni', 'bni', 'required');
-			$this->form_validation->set_rules('bri', 'bri', 'required');
-			$this->form_validation->set_rules('bca', 'bca', 'required');
-			$this->form_validation->set_rules('linkaja', 'linkaja', 'required');
-			$this->form_validation->set_rules('dana', 'dana', 'required');
-			$this->form_validation->set_rules('mandiri', 'mandiri', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('template/headeradmin', $data);
@@ -333,13 +326,6 @@ class admin extends CI_Controller
 			$this->form_validation->set_rules('nama', 'nama', 'required');
 			$this->form_validation->set_rules('alamat', 'alamat', 'required');
 			$this->form_validation->set_rules('deskripsi', 'deskripsi', 'required');
-			$this->form_validation->set_rules('totaldana', 'totaldana', 'required');
-			$this->form_validation->set_rules('bni', 'bni', 'required');
-			$this->form_validation->set_rules('bri', 'bri', 'required');
-			$this->form_validation->set_rules('bca', 'bca', 'required');
-			$this->form_validation->set_rules('linkaja', 'linkaja', 'required');
-			$this->form_validation->set_rules('dana', 'dana', 'required');
-			$this->form_validation->set_rules('mandiri', 'mandiri', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('template/headeradmin', $data);

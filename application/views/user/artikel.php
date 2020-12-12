@@ -67,7 +67,7 @@
                                                                         <p><?php echo $a['Tanggal']; ?></p>
                                                                 </div>
                                                                 <div class="blog_meta">
-                                                                        <h4><a href="<?= base_url() ?>user/detail_artikel/<?= $a['id_artikel']; ?>"><?= $a["judul"]; ?></a></h4>
+                                                                        <h5><a href="<?= base_url() ?>user/detail_artikel/<?= $a['id_artikel']; ?>"><?= $a["judul"]; ?></a></h5>
                                                                         <br><br>
                                                                 </div>
                                                         </div>

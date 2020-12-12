@@ -236,14 +236,7 @@ class admin_model extends CI_Model
             "nama" => $this->input->post('nama', true),
             "alamat" => $this->input->post('alamat', true),
             "deskripsi" => $this->input->post('deskripsi', true),
-            "totaldana" => $this->input->post('totaldana', true),
             "image" => $this->uploadImage2(),
-            "bni" => $this->input->post('bni', true),
-            "bri" => $this->input->post('bri', true),
-            "bca" => $this->input->post('bca', true),
-            "linkaja" => $this->input->post('linkaja', true),
-            "dana" => $this->input->post('dana', true),
-            "mandiri" => $this->input->post('mandiri', true),
         ];
         $this->db->insert('tujuan_donasi', $data);
     }
@@ -270,14 +263,7 @@ class admin_model extends CI_Model
         $this->nama = $post["nama"];
         $this->alamat = $post["alamat"];
         $this->deskripsi = $post["deskripsi"];
-        $this->totaldana = $post["totaldana"];
         $this->image = $this->uploadimage2();
-        $this->bni = $post["bni"];
-        $this->bri = $post["bri"];
-        $this->bca = $post["bca"];
-        $this->linkaja = $post["linkaja"];
-        $this->dana = $post["dana"];
-        $this->mandiri = $post["mandiri"];
 
         $this->db->update('tujuan_donasi', $this, array('id_tujuan' => $post['id_tujuan']));
     }

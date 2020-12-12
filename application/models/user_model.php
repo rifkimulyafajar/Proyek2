@@ -60,4 +60,19 @@ class user_model extends CI_Model
 
         $this->db->insert('diskusi', $data);
     }
+
+    // ====================== DONASI ==================================================
+
+    public function getAllDonasi()
+    {
+        # code...
+        $query = $this->db->get('tujuan_donasi');
+        return $query->result_array();
+    }
+
+    public function getDonasiById($id)
+    {
+        $query = $this->db->get_where('tujuan_donasi', array('id_tujuan' => $id));
+        return $query->row_array();
+    }
 }

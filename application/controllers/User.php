@@ -116,10 +116,21 @@ class User extends CI_Controller
 	{
 		# code...
 		$data['title'] = "Donasi";
-
+		$data['donasi'] = $this->user_model->getAllDonasi();
 
 		$this->load->view('user/header', $data);
-		$this->load->view('user/donasi');
+		$this->load->view('user/donasi', $data);
+		$this->load->view('user/footer');
+	}
+
+	public function detail_donasi($id)
+	{
+		# code...
+		$data['title'] = "Detail Donasi";
+		$data['donasi'] = $this->user_model->getDonasiById($id);
+
+		$this->load->view('user/header', $data);
+		$this->load->view('user/detail_donasi', $data);
 		$this->load->view('user/footer');
 	}
 

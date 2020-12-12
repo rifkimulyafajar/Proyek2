@@ -15,9 +15,43 @@
 	                       	Sisihkan sedikit uang anda untuk donasi. <br>
 	                       	Menabung untuk kehidupan yang selanjutnya.
 	                    </p>
+
+	                    <br><br>
+	                    <h3>Pilihan Donasi :</h3>
 	                </div>
 	            </div>
-                <div class="col-12">
+
+	            <div class="row">
+
+                    <?php
+
+	                    foreach ($donasi as $d) { ?>
+
+			                <div class="col-xl-3 col-lg-4 col-md-3">
+                                <div class="single_courses">
+			                        <div class="thumb">
+                                        <a href="<?= base_url() ?>user/detail_donasi/<?= $d['id_tujuan']; ?>">
+                                            <img href="" width="262" height="170" src="<?= base_url('upload/tujuandonasi/' . $d["image"]) ?>" alt="">
+                                        </a>
+                           	        </div>
+			                        <div class="courses_info">
+                                        <h5><a href="<?= base_url() ?>user/detail_donasi/<?= $d['id_tujuan']; ?>"><?= $d["nama"]; ?></a></h5>
+                                        <div class="star_prise d-flex justify-content-between">
+                    	                    <div class="star">
+            	                                <span><?= $d["alamat"] ?></span> <hr>
+                                            </div>
+                                        </div>
+   	                                </div>
+                                </div>
+                            </div>
+
+                    <?php
+	                    }
+                    ?>
+
+                </div>
+
+                <!-- <div class="col-12">
                   <h2 class="contact-title">Data</h2>
                 </div>
                 <div class="col-lg-12">
@@ -67,7 +101,8 @@
 	                    </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
+
         </div>
     </section>
     <!-- ================ contact section end ================= -->

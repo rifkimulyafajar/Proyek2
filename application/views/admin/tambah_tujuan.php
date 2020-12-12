@@ -31,38 +31,9 @@
                     <input type="text" class="form-control" id="deskripsi" name="deskripsi">
                 </div>
                 <div class="form-group">
-                    <label for="totaldana">Biaya</label>
-                    <input type="text" class="form-control" id="totaldana" name="totaldana">
-                </div>
-                <div class="form-group">
                     <label for="image">Gambar</label>
                     <input type="file" class="form-control" id="image" name="image">
                     <p>Format .jpg, .png Max Size : 500KB</p>
-                </div>
-                <div class="form-group">
-                    <!-- <p>Nomer rekening</p> -->
-                    <label for="bni">BNI</label>
-                    <input type="text" class="form-control" id="bni" name="bni">
-                </div>
-                <div class="form-group">
-                    <label for="bri">BRI</label>
-                    <input type="text" class="form-control" id="bri" name="bri">
-                </div>
-                <div class="form-group">
-                    <label for="bca">BCA</label>
-                    <input type="text" class="form-control" id="bca" name="bca">
-                </div>
-                <div class="form-group">
-                    <label for="linkaja">LinkAja</label>
-                    <input type="text" class="form-control" id="linkaja" name="linkaja">
-                </div>
-                <div class="form-group">
-                    <label for="dana">Dana</label>
-                    <input type="text" class="form-control" id="dana" name="dana">
-                </div>
-                <div class="form-group">
-                    <label for="mandiri">Mandiri</label>
-                    <input type="text" class="form-control" id="mandiri" name="mandiri">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary float-right">Submit</button>
             </form>
