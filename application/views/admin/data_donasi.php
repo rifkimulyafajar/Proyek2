@@ -68,7 +68,6 @@
                                                     <th>No Telp</th>
                                                     <th>Email</th>
                                                     <th>Jumlah</th>
-                                                    <th>Metode</th>
                                                     <th>Bukti TF</th>
                                                     <th>Note</th>
                                                     <th>Tanggal</th>
@@ -85,8 +84,7 @@
                                                         <td><?= $d["no_hp"]; ?></td>
                                                         <td><?= $d["email"]; ?></td>
                                                         <td><?= $d["jmlh_donasi"]; ?></td>
-                                                        <td><?= $d["metode"]; ?></td>
-                                                        <td><?= $d["bukti_tf"]; ?></td>
+                                                        <td><img src="<?= base_url('upload/buktitf/' . $d["bukti_tf"]) ?>" style="height: 200px; width: 200px;"></td>
                                                         <td><?= $d["note"]; ?></td>
                                                         <td><?= $d["tgl_donasi"]; ?></td>
                                                         <td>
