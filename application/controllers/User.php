@@ -9,6 +9,7 @@ class User extends CI_Controller
 		parent::__construct();
 		$this->load->model('admin_model');
 		$this->load->model('user_model');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -132,6 +133,30 @@ class User extends CI_Controller
 		$this->load->view('user/header', $data);
 		$this->load->view('user/detail_donasi', $data);
 		$this->load->view('user/footer');
+	}
+
+	public function tambah_donasi($id)
+	{
+		# code...
+		$data['title'] = "Detail Donasi";
+		$data['donasi'] = $this->user_model->getDonasiById($id);
+
+		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('notelp', 'NoTelp', 'required');
+		$this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+		$this->form_validation->set_rules('note', 'Note', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			# code...
+			$this->load->view('user/header', $data);
+			$this->load->view('user/detail_donasi', $data);
+			$this->load->view('user/footer');
+		} else {
+			$this->user_model->tambah_donasi($id);
+			echo "<script>alert('Success');</script>";
+			redirect('user/detail_donasi/' . $id, 'refresh');
+		}
 	}
 
 	// =========================================================================

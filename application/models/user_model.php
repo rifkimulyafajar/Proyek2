@@ -75,4 +75,39 @@ class user_model extends CI_Model
         $query = $this->db->get_where('tujuan_donasi', array('id_tujuan' => $id));
         return $query->row_array();
     }
+
+    public function tambah_donasi($id)
+    {
+        # code...
+        $this->id_donasi = uniqid();
+
+        $data = [
+            "id_user" => $this->input->post('id_user', true),
+            "id_tujuan" => $this->input->post('id_donasi', true),
+            "nama_lengkap" => $this->input->post('name', true),
+            "no_hp" => $this->input->post('notelp', true),
+            "email" => $this->input->post('email', true),
+            "jmlh_donasi" => $this->input->post('jumlah', true),
+            "bukti_tf" => $this->uploadBuktiTF(),
+            "note" => $this->input->post('note', true),
+            "tgl_donasi" => $this->input->post('tanggal', true)
+        ];
+
+        $this->db->insert('donasi', $data);
+    }
+
+    public function uploadBuktiTF()
+    {
+        $config['upload_path'] = './upload/buktitf/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['file_name'] = $this->id_donasi;
+        $config['overwrite'] = true;
+        // $config['max_size'] = 1024;
+
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('bukti_tf')) {
+            return $this->upload->data("file_name");
+        }
+    }
 }
