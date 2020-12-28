@@ -57,7 +57,6 @@
                     <th class="normal">No Telp</th>
                     <th class="normal">Email</th>
                     <th class="normal">Jumlah</th>
-                    <th class="normal">Metode</th>
                     <th class="normal">Note</th>
                     <th class="normal">Tanggal</th>
                 </tr>
@@ -72,7 +71,6 @@
                         <td><?= $dn->no_hp; ?></td>
                         <td><?= $dn->email; ?></td>
                         <td><?= $dn->jmlh_donasi; ?></td>
-                        <td><?= $dn->metode; ?></td>
                         <td><?= $dn->note; ?></td>
                         <td><?= $dn->tgl_donasi; ?></td>
                     </tr>

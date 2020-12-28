@@ -102,7 +102,6 @@
                     <th class="normal">No Telp</th>
                     <th class="normal">Email</th>
                     <th class="normal">Jumlah</th>
-                    <th class="normal">Metode</th>
                     <th class="normal">Note</th>
                     <th class="normal">Tanggal</th>
                 </tr>
@@ -116,7 +115,6 @@
                         <td width="70"><?php echo $dn['no_hp']; ?></td>
                         <td width="70"><?php echo $dn['email']; ?></td>
                         <td width="70"><?php echo $dn['jmlh_donasi']; ?></td>
-                        <td width="50"><?php echo $dn['metode']; ?></td>
                         <td width="200"><?php echo $dn['note']; ?></td>
                         <td width="70"><?php echo $dn['tgl_donasi']; ?></td>
 

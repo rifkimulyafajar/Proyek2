@@ -100,7 +100,6 @@
                     <th>No Telp</th>
                     <th>Email</th>
                     <th>Jumlah</th>
-                    <th>Metode</th>
                     <th>Note</th>
                     <th>Tanggal</th>
                 </tr>
@@ -116,7 +115,6 @@
                         <td width="70"><?= $dn->no_hp; ?></td>
                         <td width="70"><?= $dn->email; ?></td>
                         <td width="70"><?= $dn->jmlh_donasi; ?></td>
-                        <td width="50"><?= $dn->metode; ?></td>
                         <td width="200"><?= $dn->note; ?></td>
                         <td width="70"><?= $dn->tgl_donasi; ?></td>
                     </tr>
